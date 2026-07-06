@@ -171,46 +171,53 @@ export default function AdminDashboard() {
 
   const loadAllRegisteredUsers = async () => {
     try {
-      console.log('🔍 DEBUG: Iniciando loadAllRegisteredUsers()');
-      console.log('👤 Usuario actual:', user?.email);
+      console.log('🔍 Cargando usuarios de app_sessions (usuarios registrados que han iniciado sesión)');
       
-      // Intento 1: Consulta estándar
-      let { data, error } = await supabase
-        .from('app_registered_users')
-        .select('id, email, created_at, last_sign_in_at, is_blocked, last_activity, metadata');
+      // NOTA: Usamos app_sessions como fuente de verdad de usuarios registrados
+      // porque auth.users no es directamente consultable por políticas de seguridad
+      const { data: sessions, error: sessionsError } = await supabase
+        .from('app_sessions')
+        .select('user_id, session_start, app_name, platform')
+        .order('session_start', { ascending: false });
 
-      console.log('📊 Intento 1 - Respuesta:', { rowCount: (data || []).length, error: error?.message });
-      
-      if (error && !data) {
-        console.error('❌ Intento 1 falló:', error.message, error.code);
-        
-        // Intento 2: Con count exacto
-        const result = await supabase
-          .from('app_registered_users')
-          .select('*', { count: 'exact' })
-          .limit(1000);
-        
-        data = result.data;
-        error = result.error;
-        console.log('📊 Intento 2 - Respuesta:', { rowCount: (data || []).length, error: error?.message });
-      }
-      
-      if (error) {
-        console.error('❌ Ambos intentos fallaron:', error);
-        // Mostrar tabla vacía con mensaje
+      if (sessionsError) {
+        console.error('❌ Error cargando sesiones:', sessionsError.message);
         setAllRegisteredUsers([]);
         return;
       }
+
+      console.log(`✅ Sesiones encontradas: ${(sessions || []).length}`);
+
+      // Agrupar por usuario_id para obtener usuarios únicos
+      const userMap = new Map<string, any>();
       
-      console.log(`✅ Datos recibidos: ${(data || []).length} usuarios`);
-      
-      const usersWithInfo = (data || []).map((u: any) => {
-        // Determinar estado
-        let status = 'Nunca conectado';
-        if (u.is_blocked) {
-          status = 'Bloqueado';
-        } else if (u.last_activity) {
-          const lastActivity = new Date(u.last_activity);
+      (sessions || []).forEach((session: any) => {
+        if (!userMap.has(session.user_id)) {
+          userMap.set(session.user_id, {
+            id: session.user_id,
+            userId: session.user_id,
+            lastActivity: session.session_start,
+            apps: [session.app_name],
+            sessionCount: 1,
+            platforms: [session.platform]
+          });
+        } else {
+          const user = userMap.get(session.user_id)!;
+          user.sessionCount += 1;
+          if (!user.apps.includes(session.app_name)) {
+            user.apps.push(session.app_name);
+          }
+          if (!user.platforms.includes(session.platform)) {
+            user.platforms.push(session.platform);
+          }
+        }
+      });
+
+      // Convertir a array y agregar información adicional
+      const users = Array.from(userMap.values()).map(u => {
+        let status = 'Inactivo';
+        if (u.lastActivity) {
+          const lastActivity = new Date(u.lastActivity);
           const now = new Date();
           const diffMinutes = (now.getTime() - lastActivity.getTime()) / 60000;
           
@@ -225,18 +232,22 @@ export default function AdminDashboard() {
 
         return {
           id: u.id,
-          email: u.email,
-          createdAt: u.created_at,
-          lastSignIn: u.last_sign_in_at,
-          lastActivity: u.last_activity,
-          isBlocked: u.is_blocked,
+          email: u.userId, // Usar ID como placeholder
+          createdAt: u.lastActivity,
+          lastSignIn: u.lastActivity,
+          lastActivity: u.lastActivity,
+          isBlocked: false,
           status: status,
-          metadata: u.metadata
+          metadata: {
+            apps: u.apps,
+            platforms: u.platforms,
+            sessionCount: u.sessionCount
+          }
         };
       });
 
-      console.log(`✅ Usuarios procesados: ${usersWithInfo.length}`);
-      setAllRegisteredUsers(usersWithInfo);
+      console.log(`✅ Usuarios únicos encontrados: ${users.length}`);
+      setAllRegisteredUsers(users);
     } catch (err: any) {
       console.error('❌ Error crítico en loadAllRegisteredUsers:', err.message || err);
       setAllRegisteredUsers([]);
