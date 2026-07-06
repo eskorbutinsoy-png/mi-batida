@@ -249,16 +249,6 @@ export default function HomeSelector({ onSelect, onShowAdmin }: Props) {
 
         <div className="flex-1"></div>
 
-        {/* Admin App - Para admin */}
-        {user?.email === 'eskorbutinsoy@gmail.com' && onShowAdmin && (
-          <button
-            onClick={onShowAdmin}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-purple-700/60 text-purple-400 hover:text-purple-300 hover:border-purple-600 text-base font-black transition-all hover:bg-purple-900/20"
-          >
-            <Shield className="w-5 h-5" /> Admin App
-          </button>
-        )}
-
         {/* Logout */}
         <button
           onClick={handleLogout}
