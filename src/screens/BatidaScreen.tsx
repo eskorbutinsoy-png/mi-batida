@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useAppTracking } from '../lib/useAppTracking';
 import type { Batida } from '../lib/types';
 import {
   createBatida, addAdminToBatida, getBatidaByCode,
@@ -7,7 +8,7 @@ import {
 } from '../lib/db';
 import {
   Plus, Search, History, TreePine, Users,
-  ChevronRight, Loader2, Copy, Check, Calendar, UserCircle, Trash2, Zap,
+  ChevronRight, Loader2, Copy, Check, Calendar, UserCircle, Trash2, Zap, Menu,
 } from 'lucide-react';
 import PerfilSection from '../sections/PerfilSection';
 import HistorialDetalle from '../sections/HistorialDetalle';
@@ -16,6 +17,7 @@ interface Props {
   onEnterBatida: (batida: Batida) => void;
   inviteCode?: string | null;
   onInviteCodeConsumed?: () => void;
+  onBack?: () => void;
 }
 
 const ESPECIES_CUPO = [
@@ -29,8 +31,9 @@ const ESPECIES_CUPO = [
   { key: 'cupo_zorro', label: 'Zorro' },
 ] as const;
 
-export default function BatidaScreen({ onEnterBatida, inviteCode, onInviteCodeConsumed }: Props) {
+export default function BatidaScreen({ onEnterBatida, inviteCode, onInviteCodeConsumed, onBack }: Props) {
   const { user, perfil } = useAuth();
+  const { trackEvent } = useAppTracking('Mi Batida');
   const [tab, setTab] = useState<'menu' | 'crear' | 'unirse' | 'historial' | 'activa' | 'perfil'>('menu');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -287,6 +290,15 @@ export default function BatidaScreen({ onEnterBatida, inviteCode, onInviteCodeCo
       {/* Header */}
       <div className="bg-surface border-b border-forest-border px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="px-3 py-2 bg-amber hover:bg-amber-dark text-forest-dark rounded-lg flex items-center justify-center transition-colors font-semibold text-sm"
+              title="← Volver al menú de apps"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          )}
           <div className="w-8 h-8 bg-amber rounded-lg flex items-center justify-center">
             <TreePine className="w-4 h-4 text-forest-dark" />
           </div>

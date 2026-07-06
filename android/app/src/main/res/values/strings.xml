@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">MiBatida</string>
-    <string name="title_activity_main">MiBatida</string>
+    <string name="app_name">Mi Registro de Caza</string>
+    <string name="title_activity_main">Mi Registro de Caza</string>
     <string name="package_name">com.mibatida.app</string>
     <string name="custom_url_scheme">com.mibatida.app</string>
 </resources>

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
+import { supabase as supabaseRC } from '../registro-caza/lib/supabase';
 import { getPerfil, upsertPerfil, saveSecurityBackup } from '../lib/db';
 import type { Perfil } from '../lib/types';
 
@@ -72,6 +73,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function signIn(email: string, password: string): Promise<string | null> {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (!error) {
+      // También autenticar en Mi Registro de Caza silenciosamente
+      supabaseRC.auth.signInWithPassword({ email, password }).catch(() => {
+        // Si falla (cuenta no existe aún), intentar registrar
+        supabaseRC.auth.signUp({ email, password }).catch(() => {});
+      });
+    }
     return error?.message ?? null;
   }
 
@@ -87,6 +95,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       options: { data: { nombre_completo: nombreCompleto } },
     });
     if (error) return error.message;
+    // También crear cuenta en Mi Registro de Caza
+    supabaseRC.auth.signUp({ email, password, options: { data: { nombre_completo: nombreCompleto } } }).catch(() => {});
 
     if (preguntaSeguridad?.trim() && respuestaSeguridadHash) {
       saveSecurityBackup(email, {
@@ -117,6 +127,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function signOut() {
     await supabase.auth.signOut();
+    supabaseRC.auth.signOut().catch(() => {});
   }
 
   async function refreshPerfil() {

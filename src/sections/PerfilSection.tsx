@@ -371,7 +371,8 @@ export default function PerfilSection({ onBack, batidaId }: Props) {
     ? new Date(perfil.created_at).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })
     : null;
 
-  const hasUpdate = !!updateManifest && compareVersions(updateManifest.latestVersion, currentVersion) > 0;
+  const isNative = Capacitor.isNativePlatform();
+  const hasUpdate = isNative && !!updateManifest && compareVersions(updateManifest.latestVersion, currentVersion) > 0;
 
   return (
     <div className="h-full overflow-y-auto px-4 py-4 space-y-6">
@@ -658,26 +659,30 @@ export default function PerfilSection({ onBack, batidaId }: Props) {
           </div>
         )}
 
-        {!hasUpdate && !checkingUpdate && !updateError && (
+        {isNative && !hasUpdate && !checkingUpdate && !updateError && (
           <p className="text-forest-muted text-xs">La app ya esta actualizada.</p>
         )}
 
-        {updateError && (
+        {isNative && updateError && (
           <p className="text-red-300 text-xs bg-red-900/30 border border-red-700/40 rounded-lg px-3 py-2">{updateError}</p>
         )}
 
-        <button
-          type="button"
-          onClick={() => void checkForAppUpdate()}
-          disabled={checkingUpdate}
-          className="w-full py-2.5 rounded-xl border-2 border-amber/50 text-amber hover:border-amber-light hover:text-amber-light text-xs font-black disabled:opacity-60"
-        >
-          {checkingUpdate ? 'Comprobando actualizacion...' : 'Comprobar actualizacion ahora'}
-        </button>
+        {isNative && (
+          <>
+            <button
+              type="button"
+              onClick={() => void checkForAppUpdate()}
+              disabled={checkingUpdate}
+              className="w-full py-2.5 rounded-xl border-2 border-amber/50 text-amber hover:border-amber-light hover:text-amber-light text-xs font-black disabled:opacity-60"
+            >
+              {checkingUpdate ? 'Comprobando actualizacion...' : 'Comprobar actualizacion ahora'}
+            </button>
 
-        <div className="text-[11px] text-forest-muted leading-snug">
-          Si hay una version nueva, se abrira la descarga del APK y Android pedira confirmar la instalacion.
-        </div>
+            <div className="text-[11px] text-forest-muted leading-snug">
+              Si hay una version nueva, se abrira la descarga del APK y Android pedira confirmar la instalacion.
+            </div>
+          </>
+        )}
       </div>
 
       {/* Sign out */}

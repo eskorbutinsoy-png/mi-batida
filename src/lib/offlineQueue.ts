@@ -71,6 +71,7 @@ export type OfflineQueueAction =
         mensaje?: string;
         lat?: number;
         lng?: number;
+        gravedad?: string;
         imageDataUrl?: string;
         imageFileName?: string;
       };
@@ -197,6 +198,7 @@ async function executeAction(action: OfflineQueueAction) {
       imagenUrl,
       action.payload.lat,
       action.payload.lng,
+      action.payload.gravedad,
     );
   }
 }

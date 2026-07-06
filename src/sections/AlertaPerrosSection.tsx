@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { supabase } from '../lib/supabase';
-import type { Batida, BatidaAlerta, AlertaPerroTipo } from '../lib/types';
-import { ALERTA_PERRO_LABELS, ALERTA_PERRO_EMOJIS } from '../lib/types';
+import type { Batida, BatidaAlerta, AlertaPerroTipo, AlertaPerroGravedad } from '../lib/types';
+import { ALERTA_PERRO_LABELS, ALERTA_PERRO_EMOJIS, ALERTA_PERRO_GRAVEDAD_LABELS, ALERTA_PERRO_GRAVEDAD_COLORS } from '../lib/types';
 import { addAlertaPerro, getAlertasPerro, deleteAlertaPerro } from '../lib/db';
 import { enqueueOfflineAction } from '../lib/offlineQueue';
 import { useAuth } from '../contexts/AuthContext';
@@ -13,7 +13,8 @@ interface Props {
   isAdmin: boolean;
 }
 
-const tipos: AlertaPerroTipo[] = ['perro_cogido', 'perro_visto', 'perro_por_la_zona'];
+const tipos: AlertaPerroTipo[] = ['perro_cogido', 'perro_visto', 'perro_por_la_zona', 'perro_herido'];
+const gravedades: AlertaPerroGravedad[] = ['leve', 'moderado', 'grave'];
 
 function formatTimeAgo(date: string) {
   const diff = Math.floor((Date.now() - new Date(date).getTime()) / 1000);
@@ -26,6 +27,7 @@ function formatTimeAgo(date: string) {
 export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) {
   const { user } = useAuth();
   const [tipo, setTipo] = useState<AlertaPerroTipo>('perro_cogido');
+  const [gravedad, setGravedad] = useState<AlertaPerroGravedad>('moderado');
   const [color, setColor] = useState('');
   const [propietario, setPropietario] = useState('');
   const [direccion, setDireccion] = useState('');
@@ -137,6 +139,7 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
         imagen_url,
         Number(lat),
         Number(lng),
+        tipo === 'perro_herido' ? gravedad : undefined,
       );
       setColor('');
       setPropietario('');
@@ -145,6 +148,7 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
       setFile(null);
       setLat('');
       setLng('');
+      setGravedad('moderado');
       loadAlertas();
     } catch (err) {
       let imageDataUrl: string | undefined;
@@ -169,6 +173,7 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
           mensaje: mensaje || undefined,
           lat: Number(lat),
           lng: Number(lng),
+          gravedad: tipo === 'perro_herido' ? gravedad : undefined,
           imageDataUrl,
           imageFileName: file?.name,
         },
@@ -180,6 +185,7 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
       setFile(null);
       setLat('');
       setLng('');
+      setGravedad('moderado');
       console.error('Error al enviar alerta de perro:', err);
       alert('Sin conexión. Alerta guardada y pendiente de envío.');
     } finally {
@@ -202,7 +208,7 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
       <form onSubmit={handleSubmit} className="space-y-5 bg-gradient-to-br from-forest-dark to-forest-dark/70 border-2 border-amber/30 rounded-2xl p-5">
         <div>
           <label className="block text-sm text-amber font-black mb-3">🔍 Tipo de alerta</label>
-          <div className="grid grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-2 gap-2.5">
             {tipos.map(t => (
               <button key={t} type="button" onClick={() => setTipo(t)}
                 className={`rounded-2xl py-3.5 text-xs font-black transition-all border-2 ${tipo === t ? 'bg-gradient-to-r from-red-600 to-red-500 border-red-400 text-white shadow-lg' : 'bg-forest border-forest-border text-white hover:border-red-500/60'}`}>
@@ -211,6 +217,21 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
             ))}
           </div>
         </div>
+
+        {tipo === 'perro_herido' && (
+          <div>
+            <label className="block text-sm text-amber font-black mb-3">🩹 Gravedad de la herida</label>
+            <div className="grid grid-cols-3 gap-2.5">
+              {gravedades.map(g => (
+                <button key={g} type="button" onClick={() => setGravedad(g)}
+                  className={`rounded-2xl py-3.5 text-xs font-black transition-all border-2 ${gravedad === g ? ALERTA_PERRO_GRAVEDAD_COLORS[g] + ' shadow-lg' : 'bg-forest border-forest-border text-white hover:border-amber/40'}`}>
+                  {g === 'leve' ? '🟡' : g === 'moderado' ? '🟠' : '🔴'}
+                  <span className="block mt-1">{ALERTA_PERRO_GRAVEDAD_LABELS[g]}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="space-y-4">
           <div>
@@ -307,6 +328,14 @@ export default function AlertaPerrosSection({ batida, onBack, isAdmin }: Props) 
                   {alerta.propietario && <p className="text-forest-light"><span className="text-amber font-black">Dueño:</span> {alerta.propietario}</p>}
                   {alerta.raza && <p className="text-forest-light"><span className="text-amber font-black">Raza:</span> {alerta.raza}</p>}
                   {alerta.direccion && <p className="text-forest-light"><span className="text-amber font-black">Dirección:</span> {alerta.direccion}</p>}
+                  {alerta.gravedad && (
+                    <p className="text-forest-light">
+                      <span className="text-amber font-black">Gravedad:</span>{' '}
+                      <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-black border ${ALERTA_PERRO_GRAVEDAD_COLORS[alerta.gravedad]}`}>
+                        {alerta.gravedad === 'leve' ? '🟡' : alerta.gravedad === 'moderado' ? '🟠' : '🔴'} {ALERTA_PERRO_GRAVEDAD_LABELS[alerta.gravedad]}
+                      </span>
+                    </p>
+                  )}
                   {alerta.lat != null && alerta.lng != null && (
                     <p className="text-forest-light">
                       <span className="text-amber font-black">GPS:</span>{' '}

@@ -315,7 +315,7 @@ export default function AuthScreen() {
             <div className="absolute inset-0 bg-amber/20 animate-pulse"></div>
             <TreePine className="w-11 h-11 text-forest-dark relative z-10" />
           </div>
-          <h1 className="text-4xl font-black text-white tracking-tighter">Mi Batida</h1>
+          <h1 className="text-4xl font-black text-white tracking-tighter">Mi Gestión de Caza</h1>
           <p className="text-forest-light text-base mt-2 font-medium">Gestión profesional de batidas de caza</p>
         </div>
 

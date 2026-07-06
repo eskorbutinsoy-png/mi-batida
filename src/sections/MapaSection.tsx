@@ -3,7 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Map as LeafletMap, Marker, LayerGroup } from 'leaflet';
 import type { Batida, BatidaMiembro, BatidaPosicion, BatidaRastro, BatidaPuestoMapa, BatidaRegistro, BatidaAlerta, EspecieRastro, AntiguedadRastro, BatidaMensaje } from '../lib/types';
-import { ALERTA_PERRO_LABELS, ESPECIE_RASTRO_LABELS, ANTIGUEDAD_LABELS, ESPECIE_LABELS } from '../lib/types';
+import { ALERTA_PERRO_LABELS, ALERTA_PERRO_GRAVEDAD_LABELS, ESPECIE_RASTRO_LABELS, ANTIGUEDAD_LABELS, ESPECIE_LABELS } from '../lib/types';
 import { upsertPosicion, getPosiciones, getRastros, addRastro, getPuestosMapa, addPuestoMapa, deletePuestoMapa, deleteRastro, getRegistros, getAlertasPerro, addMensaje, getMensajes, deleteMensaje, notifySosPush } from '../lib/db';
 import { enqueueOfflineAction } from '../lib/offlineQueue';
 import { supabase } from '../lib/supabase';
@@ -778,16 +778,23 @@ export default function MapaSection({ batida, miembros, miMiembro, isAdmin, acti
     let lastMarker: any = null;
     alertas.forEach((a) => {
       if (a.lat == null || a.lng == null) return;
+      const esHerido = a.tipo_alerta === 'perro_herido';
+      const markerColor = esHerido
+        ? (a.gravedad === 'grave' ? '#dc2626' : a.gravedad === 'moderado' ? '#ea580c' : '#ca8a04')
+        : '#ef4444';
+      const markerEmoji = esHerido ? '🩹' : '🐕';
       const marker = L.marker([a.lat, a.lng], {
         icon: L.divIcon({
           className: '',
-          html: `<div style="background:#ef4444;border:3px solid white;border-radius:50%;width:24px;height:24px;box-shadow:0 2px 6px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;">🐕</div>`,
+          html: `<div style="background:${markerColor};border:3px solid white;border-radius:50%;width:24px;height:24px;box-shadow:0 2px 6px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;">${markerEmoji}</div>`,
           iconSize: [24, 24],
           iconAnchor: [12, 12],
           popupAnchor: [0, -18],
         }),
       });
       const tipoLabel = ALERTA_PERRO_LABELS[a.tipo_alerta];
+      const gravedadColor = a.gravedad === 'grave' ? '#dc2626' : a.gravedad === 'moderado' ? '#ea580c' : '#ca8a04';
+      const gravedadHtml = a.gravedad ? `<div style="margin-top:4px"><b>Gravedad:</b> <span style="background:${gravedadColor};color:white;padding:1px 8px;border-radius:99px;font-size:11px;font-weight:700">${ALERTA_PERRO_GRAVEDAD_LABELS[a.gravedad]}</span></div>` : '';
       const direccion = a.direccion ? `<div><b>Hacia dónde se dirige:</b> ${a.direccion}</div>` : '';
       const propietario = a.propietario ? `<div><b>Propietario:</b> ${a.propietario}</div>` : '';
       const color = a.color ? `<div><b>Color:</b> ${a.color}</div>` : '';
@@ -797,6 +804,7 @@ export default function MapaSection({ batida, miembros, miMiembro, isAdmin, acti
       marker.bindPopup(`
         <div style="min-width:180px;font-family:sans-serif">
           <b style="font-size:13px">${tipoLabel}</b>
+          ${gravedadHtml}
           ${author}
           ${color}
           ${propietario}

@@ -104,7 +104,8 @@ export interface BatidaChatMensaje {
 // Backwards-compatible alias used across the UI
 export type BatidaMensaje = BatidaChatMensaje;
 
-export type AlertaPerroTipo = 'perro_cogido' | 'perro_visto' | 'perro_por_la_zona';
+export type AlertaPerroTipo = 'perro_cogido' | 'perro_visto' | 'perro_por_la_zona' | 'perro_herido';
+export type AlertaPerroGravedad = 'leve' | 'moderado' | 'grave';
 
 export interface BatidaAlerta {
   id: string;
@@ -119,6 +120,7 @@ export interface BatidaAlerta {
   imagen_url: string | null;
   lat: number | null;
   lng: number | null;
+  gravedad: AlertaPerroGravedad | null;
   created_at: string;
   perfil?: { nombre_completo: string; foto: string | null } | null;
 }
@@ -227,10 +229,24 @@ export const ALERTA_PERRO_LABELS: Record<AlertaPerroTipo, string> = {
   perro_cogido: 'Perro cogido',
   perro_visto: 'Perro visto',
   perro_por_la_zona: 'Perro por la zona',
+  perro_herido: 'Perro herido',
 };
 
 export const ALERTA_PERRO_EMOJIS: Record<AlertaPerroTipo, string> = {
   perro_cogido: '🐕‍🦺',
   perro_visto: '👀',
   perro_por_la_zona: '📍',
+  perro_herido: '🩹',
+};
+
+export const ALERTA_PERRO_GRAVEDAD_LABELS: Record<AlertaPerroGravedad, string> = {
+  leve: 'Leve',
+  moderado: 'Moderado',
+  grave: 'Grave',
+};
+
+export const ALERTA_PERRO_GRAVEDAD_COLORS: Record<AlertaPerroGravedad, string> = {
+  leve: 'text-yellow-400 border-yellow-600/60 bg-yellow-900/20',
+  moderado: 'text-orange-400 border-orange-600/60 bg-orange-900/20',
+  grave: 'text-red-400 border-red-600/60 bg-red-900/20',
 };

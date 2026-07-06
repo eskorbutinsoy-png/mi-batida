@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AuthScreen from './screens/AuthScreen';
+import HomeSelector from './screens/HomeSelector';
 import BatidaScreen from './screens/BatidaScreen';
 import EsperandoScreen from './screens/EsperandoScreen';
 import MapaSection from './sections/MapaSection';
@@ -10,12 +11,14 @@ import ChatSection from './sections/ChatSection';
 import BatidaInfoSection from './sections/BatidaInfoSection';
 import AlertaPerrosSection from './sections/AlertaPerrosSection';
 import PerfilSection from './sections/PerfilSection';
+import AdminDashboard from './sections/AdminDashboard';
+import RegistroCazaApp from './registro-caza/App';
 import type { Batida, BatidaMiembro, BatidaAdmin } from './lib/types';
 import { getBatida, getBatidaMiembros, getBatidaAdmins, getMiBatidaMiembro, isAdmin, updateMiembroEstado, getMensajes, upsertPushDeviceToken } from './lib/db';
 import { OFFLINE_QUEUE_UPDATED_EVENT, flushOfflineQueue, getOfflineQueueCount } from './lib/offlineQueue';
 import { playSosAlarm, unlockSosAudio } from './lib/sosAlarm';
 import { supabase } from './lib/supabase';
-import { Map, FileText, BarChart3, MessageCircle, Info, Loader2, TreePine, Bell, UserCircle2 } from 'lucide-react';
+import { Map, FileText, BarChart3, MessageCircle, Info, Loader2, TreePine, Bell, UserCircle2, Menu } from 'lucide-react';
 import { App as CapacitorApp } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
@@ -23,9 +26,14 @@ import { PushNotifications } from '@capacitor/push-notifications';
 
 type Tab = 'mapa' | 'registro' | 'totales' | 'chat' | 'batida' | 'alerta' | 'perfil';
 const SOS_CHANNEL_ID = 'sos-alerts-v3';
+const APP_SELECTION_KEY = 'mb-selected-app';
 
 function AppInner() {
   const { user, loading: authLoading } = useAuth();
+  const [selectedApp, setSelectedApp] = useState<'batida' | 'registro' | null>(() => {
+    return (localStorage.getItem(APP_SELECTION_KEY) as 'batida' | 'registro' | null);
+  });
+  const [showAdmin, setShowAdmin] = useState(false);
   const [batida, setBatida] = useState<Batida | null>(null);
   const [miMiembro, setMiMiembro] = useState<BatidaMiembro | null>(null);
   const [miembros, setMiembros] = useState<BatidaMiembro[]>([]);
@@ -496,6 +504,33 @@ function AppInner() {
 
   if (!user) return <AuthScreen />;
 
+  // Admin App
+  if (showAdmin) {
+    return (
+      <AdminDashboard />
+    );
+  }
+
+  // Selector de app
+  if (!selectedApp) {
+    return (
+      <HomeSelector onSelect={(app) => {
+        localStorage.setItem(APP_SELECTION_KEY, app);
+        setSelectedApp(app);
+      }} onShowAdmin={() => setShowAdmin(true)} />
+    );
+  }
+
+  // Mi Registro de Caza
+  if (selectedApp === 'registro') {
+    return (
+      <RegistroCazaApp onBack={() => {
+        localStorage.removeItem(APP_SELECTION_KEY);
+        setSelectedApp(null);
+      }} />
+    );
+  }
+
   if (batidaLoading) {
     return (
       <div className="min-h-screen bg-forest flex items-center justify-center">
@@ -510,6 +545,10 @@ function AppInner() {
         onEnterBatida={handleEnterBatida}
         inviteCode={pendingInviteCode}
         onInviteCodeConsumed={() => setPendingInviteCode(null)}
+        onBack={() => {
+          localStorage.removeItem(APP_SELECTION_KEY);
+          setSelectedApp(null);
+        }}
       />
     );
   }
@@ -525,12 +564,19 @@ function AppInner() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-forest overflow-hidden">
+    <div className="flex flex-col bg-forest overflow-hidden" style={{ height: '100dvh' }}>
       {/* Header */}
       <div className="bg-surface border-b border-forest-border px-4 py-2.5 flex items-center gap-3 shrink-0">
-        <div className="w-7 h-7 bg-amber rounded-lg flex items-center justify-center">
-          <TreePine className="w-4 h-4 text-forest-dark" />
-        </div>
+        <button
+          onClick={() => {
+            localStorage.removeItem(APP_SELECTION_KEY);
+            setSelectedApp(null);
+          }}
+          className="px-3 py-2 bg-amber hover:bg-amber-dark text-forest-dark rounded-lg flex items-center justify-center transition-colors font-semibold text-sm"
+          title="← Volver al menú de apps"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
         <div className="flex-1 min-w-0">
           <h1 className="text-white font-bold text-sm leading-tight truncate">{batida.nombre}</h1>
           <p className="text-forest-muted text-xs">
@@ -605,9 +651,9 @@ function AppInner() {
         )}
       </div>
 
-      {/* Tab bar */}
-      <div className="bg-surface border-t border-forest-border shrink-0 safe-area-bottom overflow-x-auto">
-        <div className="flex gap-1 px-1 py-2">
+      {/* Tab bar - Scrolleable */}
+      <div className="bg-surface border-t border-forest-border shrink-0 safe-area-bottom">
+        <div className="flex gap-2 px-2 py-2 overflow-x-auto scrollbar-hide">
           {([
             { id: 'mapa' as Tab, label: 'Mapa', icon: Map },
             { id: 'registro' as Tab, label: 'Registro', icon: FileText },
@@ -618,7 +664,7 @@ function AppInner() {
             { id: 'perfil' as Tab, label: 'Perfil', icon: UserCircle2 },
           ] as { id: Tab; label: string; icon: typeof Map; badge?: number }[]).map(({ id, label, icon: Icon, badge }) => (
             <button key={id} onClick={() => { setTab(id); if (id === 'chat') { setChatUnread(0); getMensajes(batida.id).then(msgs => { lastSeenMsgCount.current = msgs.length; }); } }}
-              className={`min-w-[88px] flex-1 shrink-0 flex flex-col items-center justify-center py-2 gap-0.5 rounded-2xl ${tab === id ? 'text-amber bg-forest-dark/80' : 'text-forest-muted hover:text-forest-light bg-forest-dark/20'} transition-colors`}>
+              className={`min-w-max px-3 py-2 flex flex-col items-center justify-center gap-0.5 rounded-2xl whitespace-nowrap ${tab === id ? 'text-amber bg-forest-dark/80' : 'text-forest-muted hover:text-forest-light bg-forest-dark/20'} transition-colors`}>
               <div className="relative">
                 <Icon className="w-5 h-5" />
                 {badge != null && badge > 0 && (

@@ -23,6 +23,8 @@ body {
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   overscroll-behavior: none;
+  /* Prevent mobile browser from resizing the viewport when address bar shows/hides */
+  min-height: 100dvh;
 }
 
 .leaflet-container {
@@ -74,4 +76,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Ocultar scrollbar pero mantener scroll funcional */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari y Opera */
 }

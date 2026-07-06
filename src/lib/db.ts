@@ -720,6 +720,7 @@ export async function addAlertaPerro(
   imagen_url?: string,
   lat?: number,
   lng?: number,
+  gravedad?: string,
 ): Promise<BatidaAlerta> {
   const { data, error } = await supabase
     .from('batida_alertas')
@@ -735,6 +736,7 @@ export async function addAlertaPerro(
       imagen_url: imagen_url ?? null,
       lat: lat ?? null,
       lng: lng ?? null,
+      gravedad: gravedad || null,
     })
     .select()
     .single();
