@@ -171,13 +171,22 @@ export default function AdminDashboard() {
 
   const loadAllRegisteredUsers = async () => {
     try {
+      console.log('🔍 DEBUG: Iniciando loadAllRegisteredUsers()');
+      
       // Obtener usuarios con información completa de Supabase
-      const { data, error } = await supabase
+      const { data, error, status, statusText } = await supabase
         .from('app_registered_users')
         .select('*')
         .order('last_activity', { ascending: false, nullsLast: true });
 
-      if (error) throw error;
+      console.log('📊 DEBUG: Respuesta Supabase:', { data, error, status, statusText });
+      
+      if (error) {
+        console.error('❌ ERROR Supabase:', error.message, error.code);
+        throw error;
+      }
+      
+      console.log(`✅ DEBUG: Datos recibidos: ${(data || []).length} usuarios`);
       
       const usersWithInfo = (data || []).map(u => {
         // Determinar estado
@@ -210,9 +219,13 @@ export default function AdminDashboard() {
         };
       });
 
+      console.log(`✅ DEBUG: Usuarios procesados: ${usersWithInfo.length}`);
       setAllRegisteredUsers(usersWithInfo);
     } catch (err) {
-      console.error('Error loading registered users:', err);
+      console.error('❌ Error loading registered users:', err);
+      console.log('🔄 Intentando alternativa con app_sessions...');
+      // Fallback a alternativa
+      loadRegisteredUsersAlternative();
     }
   };
 
