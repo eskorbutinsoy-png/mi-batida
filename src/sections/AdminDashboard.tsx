@@ -179,112 +179,94 @@ export default function AdminDashboard() {
         return;
       }
 
-      // Intento 1: Obtener de app_sessions agrupado por usuario
-      const { data: sessions, error: sessionError } = await supabase
-        .from('app_sessions')
-        .select('user_id, session_start, app_name, platform')
-        .limit(1000);
-
       let users: any[] = [];
 
-      if (sessionError) {
-        console.warn('⚠️ app_sessions no disponible:', sessionError.message);
-      } else if (sessions && sessions.length > 0) {
-        console.log(`✅ Sesiones encontradas: ${sessions.length}`);
+      // INTENTO 1: Obtener usuarios reales de auth.users via RPC
+      try {
+        console.log('📡 Intentando obtener usuarios via RPC...');
+        const { data: rpcUsers, error: rpcError } = await supabase.rpc('get_all_registered_users');
         
-        // Agrupar por usuario_id para obtener usuarios únicos
-        const userMap = new Map<string, any>();
-        
-        sessions.forEach((session: any) => {
-          const userId = session.user_id;
-          if (!userMap.has(userId)) {
-            userMap.set(userId, {
-              id: userId,
-              userId: userId,
-              lastActivity: session.session_start,
-              apps: [session.app_name],
-              sessionCount: 1,
-              platforms: [session.platform]
-            });
-          } else {
-            const u = userMap.get(userId)!;
-            u.sessionCount += 1;
-            if (!u.apps.includes(session.app_name)) {
-              u.apps.push(session.app_name);
-            }
-            if (!u.platforms.includes(session.platform)) {
-              u.platforms.push(session.platform);
-            }
-          }
-        });
-
-        users = Array.from(userMap.values());
+        if (!rpcError && rpcUsers && rpcUsers.length > 0) {
+          console.log(`✅ Usuarios obtenidos via RPC: ${rpcUsers.length}`);
+          users = rpcUsers.map((u: any) => ({
+            id: u.id,
+            email: u.email,
+            createdAt: u.created_at,
+            lastSignIn: u.last_sign_in_at,
+            lastActivity: u.last_sign_in_at,
+            isBlocked: false,
+            metadata: { source: 'auth.users' }
+          }));
+        } else if (rpcError) {
+          console.warn('⚠️ RPC no disponible:', rpcError.message);
+        }
+      } catch (rpcErr: any) {
+        console.warn('⚠️ Error en RPC:', rpcErr.message);
       }
 
-      // Si no hay sesiones, mostrar usuario actual + usuarios de demostración
+      // INTENTO 2: Si RPC falla, obtener de app_sessions agrupado por usuario
+      if (users.length === 0) {
+        console.log('📡 Intentando obtener de app_sessions...');
+        const { data: sessions, error: sessionError } = await supabase
+          .from('app_sessions')
+          .select('user_id, session_start, app_name, platform')
+          .limit(1000);
+
+        if (sessionError) {
+          console.warn('⚠️ app_sessions no disponible:', sessionError.message);
+        } else if (sessions && sessions.length > 0) {
+          console.log(`✅ Sesiones encontradas: ${sessions.length}`);
+          
+          // Agrupar por usuario_id para obtener usuarios únicos
+          const userMap = new Map<string, any>();
+          
+          sessions.forEach((session: any) => {
+            const userId = session.user_id;
+            if (!userMap.has(userId)) {
+              userMap.set(userId, {
+                id: userId,
+                userId: userId,
+                lastActivity: session.session_start,
+                apps: [session.app_name],
+                sessionCount: 1,
+                platforms: [session.platform]
+              });
+            } else {
+              const u = userMap.get(userId)!;
+              u.sessionCount += 1;
+              if (!u.apps.includes(session.app_name)) {
+                u.apps.push(session.app_name);
+              }
+              if (!u.platforms.includes(session.platform)) {
+                u.platforms.push(session.platform);
+              }
+            }
+          });
+
+          users = Array.from(userMap.values());
+        }
+      }
+
+      // FALLBACK: Si no hay datos, mostrar usuario actual
       if (users.length === 0 && user?.email) {
-        console.log('📌 Mostrando usuario autenticado + usuarios de demostración');
-        
-        // Usuario actual
+        console.log('📌 Mostrando solo usuario autenticado (admin)');
         users = [{
           id: user.id || 'unknown',
-          userId: user.id || 'unknown',
           email: user.email,
+          createdAt: new Date().toISOString(),
+          lastSignIn: new Date().toISOString(),
           lastActivity: new Date().toISOString(),
           isBlocked: false,
-          status: 'En línea',
           metadata: { note: 'Usuario administrador' }
         }];
-
-        // Agregar usuarios de demostración para mostrar cómo funciona el sistema
-        const demoUsers = [
-          {
-            id: 'demo-1',
-            email: 'cazador1@example.com',
-            lastActivity: new Date(Date.now() - 2 * 60000).toISOString(), // Hace 2 minutos (En línea)
-            isBlocked: false,
-            sessionCount: 5
-          },
-          {
-            id: 'demo-2',
-            email: 'cazador2@example.com',
-            lastActivity: new Date(Date.now() - 8 * 3600000).toISOString(), // Hace 8 horas (Activo hoy)
-            isBlocked: false,
-            sessionCount: 12
-          },
-          {
-            id: 'demo-3',
-            email: 'cazador3@example.com',
-            lastActivity: new Date(Date.now() - 48 * 3600000).toISOString(), // Hace 2 días (Inactivo)
-            isBlocked: false,
-            sessionCount: 3
-          },
-          {
-            id: 'demo-4',
-            email: 'usuario.bloqueado@example.com',
-            lastActivity: new Date(Date.now() - 5 * 24 * 3600000).toISOString(), // Hace 5 días
-            isBlocked: true,
-            sessionCount: 1
-          }
-        ];
-
-        // Agregar usuarios de demostración
-        users = users.concat(demoUsers.map(d => ({
-          id: d.id,
-          userId: d.id,
-          email: d.email,
-          lastActivity: d.lastActivity,
-          isBlocked: d.isBlocked,
-          sessionCount: d.sessionCount,
-          metadata: { note: 'Usuario de demostración - datos reales llegarán pronto' }
-        })));
       }
 
       // Agregar información adicional a cada usuario
       const usersWithInfo = users.map(u => {
         let status = 'Inactivo';
-        if (u.lastActivity) {
-          const lastActivity = new Date(u.lastActivity);
+        const activityTime = u.lastActivity || u.lastSignIn;
+        if (activityTime) {
+          const lastActivity = new Date(activityTime);
           const now = new Date();
           const diffMinutes = (now.getTime() - lastActivity.getTime()) / 60000;
           
@@ -300,12 +282,12 @@ export default function AdminDashboard() {
         return {
           id: u.id,
           email: u.email || u.userId,
-          createdAt: u.lastActivity,
-          lastSignIn: u.lastActivity,
-          lastActivity: u.lastActivity,
+          createdAt: u.createdAt || u.lastSignIn,
+          lastSignIn: u.lastSignIn,
+          lastActivity: activityTime,
           isBlocked: u.isBlocked || false,
           status: status,
-          metadata: u.metadata || { apps: u.apps, platforms: u.platforms, sessionCount: u.sessionCount }
+          metadata: u.metadata || {}
         };
       });
 
