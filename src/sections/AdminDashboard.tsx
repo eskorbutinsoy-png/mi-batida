@@ -181,30 +181,58 @@ export default function AdminDashboard() {
 
       let users: any[] = [];
 
-      // INTENTO 1: Obtener usuarios reales de auth.users via RPC
+      // INTENTO 1: Obtener de tabla pública registered_users
       try {
-        console.log('📡 Intentando obtener usuarios via RPC...');
-        const { data: rpcUsers, error: rpcError } = await supabase.rpc('get_all_registered_users');
+        console.log('📡 Intentando obtener usuarios de tabla pública...');
+        const { data: registeredUsers, error: tableError } = await supabase
+          .from('registered_users')
+          .select('*')
+          .order('created_at', { ascending: false });
         
-        if (!rpcError && rpcUsers && rpcUsers.length > 0) {
-          console.log(`✅ Usuarios obtenidos via RPC: ${rpcUsers.length}`);
-          users = rpcUsers.map((u: any) => ({
+        if (!tableError && registeredUsers && registeredUsers.length > 0) {
+          console.log(`✅ Usuarios obtenidos de tabla pública: ${registeredUsers.length}`);
+          users = registeredUsers.map((u: any) => ({
             id: u.id,
             email: u.email,
             createdAt: u.created_at,
             lastSignIn: u.last_sign_in_at,
             lastActivity: u.last_sign_in_at,
-            isBlocked: false,
-            metadata: { source: 'auth.users' }
+            isBlocked: u.is_blocked || false,
+            metadata: u.metadata || {}
           }));
-        } else if (rpcError) {
-          console.warn('⚠️ RPC no disponible:', rpcError.message);
+        } else if (tableError) {
+          console.warn('⚠️ Tabla pública no disponible:', tableError.message);
         }
-      } catch (rpcErr: any) {
-        console.warn('⚠️ Error en RPC:', rpcErr.message);
+      } catch (tableErr: any) {
+        console.warn('⚠️ Error en tabla pública:', tableErr.message);
       }
 
-      // INTENTO 2: Si RPC falla, obtener de app_sessions agrupado por usuario
+      // INTENTO 2: Si tabla pública falla, intentar RPC
+      if (users.length === 0) {
+        try {
+          console.log('📡 Intentando obtener usuarios via RPC...');
+          const { data: rpcUsers, error: rpcError } = await supabase.rpc('get_all_registered_users');
+          
+          if (!rpcError && rpcUsers && rpcUsers.length > 0) {
+            console.log(`✅ Usuarios obtenidos via RPC: ${rpcUsers.length}`);
+            users = rpcUsers.map((u: any) => ({
+              id: u.id,
+              email: u.email,
+              createdAt: u.created_at,
+              lastSignIn: u.last_sign_in_at,
+              lastActivity: u.last_sign_in_at,
+              isBlocked: false,
+              metadata: { source: 'auth.users' }
+            }));
+          } else if (rpcError) {
+            console.warn('⚠️ RPC no disponible:', rpcError.message);
+          }
+        } catch (rpcErr: any) {
+          console.warn('⚠️ Error en RPC:', rpcErr.message);
+        }
+      }
+
+      // INTENTO 3: Si RPC falla, obtener de app_sessions
       if (users.length === 0) {
         console.log('📡 Intentando obtener de app_sessions...');
         const { data: sessions, error: sessionError } = await supabase
@@ -217,7 +245,6 @@ export default function AdminDashboard() {
         } else if (sessions && sessions.length > 0) {
           console.log(`✅ Sesiones encontradas: ${sessions.length}`);
           
-          // Agrupar por usuario_id para obtener usuarios únicos
           const userMap = new Map<string, any>();
           
           sessions.forEach((session: any) => {
@@ -261,7 +288,7 @@ export default function AdminDashboard() {
         }];
       }
 
-      // Agregar información adicional a cada usuario
+      // Procesar información adicional
       const usersWithInfo = users.map(u => {
         let status = 'Inactivo';
         const activityTime = u.lastActivity || u.lastSignIn;
@@ -295,7 +322,6 @@ export default function AdminDashboard() {
       setAllRegisteredUsers(usersWithInfo);
     } catch (err: any) {
       console.error('❌ Error en loadAllRegisteredUsers:', err.message || err);
-      // Fallback: mostrar usuario actual
       if (user?.email) {
         setAllRegisteredUsers([{
           id: user.id || 'unknown',
