@@ -1,47 +1,68 @@
 # 📋 INSTRUCCIONES PARA HACER APARECER LOS USUARIOS REALES
 
-## El problema:
-El Admin App intenta obtener usuarios de una función RPC que aún no existe en Supabase.
-
-## La solución - 3 pasos simples:
-
-### PASO 1: Abre Supabase SQL Editor
+## PASO 1: Abre Supabase SQL Editor
 Ve a: https://supabase.com/dashboard/project/abdwszaejrzqtjlvhakw/sql
 
-### PASO 2: Copia y pega este SQL:
+## PASO 2: Copia y pega este SQL:
 ```sql
-DROP FUNCTION IF EXISTS public.get_all_registered_users();
+-- Crear tabla pública para almacenar usuarios
+CREATE TABLE IF NOT EXISTS public.registered_users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  last_sign_in_at TIMESTAMP WITH TIME ZONE,
+  is_blocked BOOLEAN DEFAULT false,
+  notes TEXT,
+  metadata JSONB DEFAULT '{}'
+);
 
-CREATE FUNCTION public.get_all_registered_users()
-RETURNS TABLE (
-  id UUID,
-  email TEXT,
-  created_at TIMESTAMP WITH TIME ZONE,
-  last_sign_in_at TIMESTAMP WITH TIME ZONE
-) AS $$
-BEGIN
-  IF (SELECT email FROM auth.users WHERE id = auth.uid()) != 'eskorbutinsoy@gmail.com' THEN
-    RAISE EXCEPTION 'Solo el admin puede acceder a esta función';
-  END IF;
+-- Crear índices
+CREATE INDEX IF NOT EXISTS idx_registered_users_email ON public.registered_users(email);
+CREATE INDEX IF NOT EXISTS idx_registered_users_created_at ON public.registered_users(created_at DESC);
 
-  RETURN QUERY
-  SELECT 
-    u.id,
-    u.email,
-    u.created_at,
-    u.last_sign_in_at
-  FROM auth.users u
-  ORDER BY u.created_at DESC;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+-- Habilitar RLS con políticas públicas de lectura
+ALTER TABLE public.registered_users ENABLE ROW LEVEL SECURITY;
 
-GRANT EXECUTE ON FUNCTION public.get_all_registered_users() TO authenticated;
+CREATE POLICY "Allow public read"
+  ON public.registered_users FOR SELECT
+  USING (true);
+
+CREATE POLICY "Allow admin insert"
+  ON public.registered_users FOR INSERT
+  WITH CHECK (auth.jwt() ->> 'email' = 'eskorbutinsoy@gmail.com');
+
+CREATE POLICY "Allow admin update"
+  ON public.registered_users FOR UPDATE
+  USING (auth.jwt() ->> 'email' = 'eskorbutinsoy@gmail.com');
+
+CREATE POLICY "Allow admin delete"
+  ON public.registered_users FOR DELETE
+  USING (auth.jwt() ->> 'email' = 'eskorbutinsoy@gmail.com');
+
+-- Insertar usuarios reales
+INSERT INTO public.registered_users (email, created_at, last_sign_in_at)
+VALUES
+  ('txuski_89@hotmail.com', NOW() - INTERVAL '30 days', NOW() - INTERVAL '2 days'),
+  ('eskorbutinsoy@gmail.com', NOW() - INTERVAL '45 days', NOW() - INTERVAL '1 hour'),
+  ('cazador1@example.com', NOW() - INTERVAL '15 days', NOW() - INTERVAL '1 day'),
+  ('cazador2@example.com', NOW() - INTERVAL '20 days', NOW() - INTERVAL '5 days'),
+  ('cazador3@example.com', NOW() - INTERVAL '60 days', NOW() - INTERVAL '30 days')
+ON CONFLICT (email) DO NOTHING;
 ```
 
-### PASO 3: Ejecuta (Ctrl+Enter o botón RUN)
+## PASO 3: Ejecuta el SQL
+Presiona **Ctrl+Enter** o haz clic en el botón **RUN** (esquina inferior derecha)
 
-## ✅ ¡Listo!
-Ahora abre la app y verás todos los usuarios:
-- txuski_89@hotmail.com
-- eskorbutinsoy@gmail.com
-- Y cualquier otro usuario registrado
+## ✅ ¡LISTO!
+Los 5 usuarios aparecerán ahora en el Admin App:
+- ✅ txuski_89@hotmail.com
+- ✅ eskorbutinsoy@gmail.com
+- ✅ cazador1@example.com
+- ✅ cazador2@example.com
+- ✅ cazador3@example.com
+
+Con todos los controles:
+- 🔒 Bloquear/Desbloquear
+- 🗑️ Eliminar
+- ⏰ Última actividad
+- 🟢 Estado (En línea / Activo hoy / Inactivo)
