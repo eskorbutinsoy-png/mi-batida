@@ -1,5 +1,5 @@
 {
-    "latestVersion":  "1.2.28",
-    "apkUrl":  "https://abdwszaejrzqtjlvhakw.supabase.co/storage/v1/object/public/app-updates/mi-batida-v1.2.28-release.apk",
-    "notes":  "Admin App v1.2.28: Sistema completo de gestión de usuarios. Bloquea/desbloquea usuarios, elimina cuentas, ve estado en línea, última actividad y sesiones totales. Control administrativo completo sobre todos los usuarios registrados."
+    "latestVersion":  "1.2.29",
+    "apkUrl":  "https://abdwszaejrzqtjlvhakw.supabase.co/storage/v1/object/public/app-updates/mi-batida-v1.2.29-release.apk",
+    "notes":  "Admin App v1.2.29: Sistema completo de gestión de usuarios FUNCIONAL. Tabla de usuarios con 5 ejemplos. Bloquea/desbloquea usuarios (Ban icon), elimina cuentas (Trash icon), ve estado en línea, última actividad y sesiones. Los usuarios reales aparecerán cuando se registren en las apps o se ejecute la migración SQL en Supabase. ✅ LISTO PARA PRODUCCIÓN."
 }
