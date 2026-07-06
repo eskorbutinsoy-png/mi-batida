@@ -172,23 +172,39 @@ export default function AdminDashboard() {
   const loadAllRegisteredUsers = async () => {
     try {
       console.log('🔍 DEBUG: Iniciando loadAllRegisteredUsers()');
+      console.log('👤 Usuario actual:', user?.email);
       
-      // Obtener usuarios con información completa de Supabase
-      const { data, error, status, statusText } = await supabase
+      // Intento 1: Consulta estándar
+      let { data, error } = await supabase
         .from('app_registered_users')
-        .select('*')
-        .order('last_activity', { ascending: false, nullsLast: true });
+        .select('id, email, created_at, last_sign_in_at, is_blocked, last_activity, metadata');
 
-      console.log('📊 DEBUG: Respuesta Supabase:', { data, error, status, statusText });
+      console.log('📊 Intento 1 - Respuesta:', { rowCount: (data || []).length, error: error?.message });
       
-      if (error) {
-        console.error('❌ ERROR Supabase:', error.message, error.code);
-        throw error;
+      if (error && !data) {
+        console.error('❌ Intento 1 falló:', error.message, error.code);
+        
+        // Intento 2: Con count exacto
+        const result = await supabase
+          .from('app_registered_users')
+          .select('*', { count: 'exact' })
+          .limit(1000);
+        
+        data = result.data;
+        error = result.error;
+        console.log('📊 Intento 2 - Respuesta:', { rowCount: (data || []).length, error: error?.message });
       }
       
-      console.log(`✅ DEBUG: Datos recibidos: ${(data || []).length} usuarios`);
+      if (error) {
+        console.error('❌ Ambos intentos fallaron:', error);
+        // Mostrar tabla vacía con mensaje
+        setAllRegisteredUsers([]);
+        return;
+      }
       
-      const usersWithInfo = (data || []).map(u => {
+      console.log(`✅ Datos recibidos: ${(data || []).length} usuarios`);
+      
+      const usersWithInfo = (data || []).map((u: any) => {
         // Determinar estado
         let status = 'Nunca conectado';
         if (u.is_blocked) {
@@ -219,13 +235,11 @@ export default function AdminDashboard() {
         };
       });
 
-      console.log(`✅ DEBUG: Usuarios procesados: ${usersWithInfo.length}`);
+      console.log(`✅ Usuarios procesados: ${usersWithInfo.length}`);
       setAllRegisteredUsers(usersWithInfo);
-    } catch (err) {
-      console.error('❌ Error loading registered users:', err);
-      console.log('🔄 Intentando alternativa con app_sessions...');
-      // Fallback a alternativa
-      loadRegisteredUsersAlternative();
+    } catch (err: any) {
+      console.error('❌ Error crítico en loadAllRegisteredUsers:', err.message || err);
+      setAllRegisteredUsers([]);
     }
   };
 
