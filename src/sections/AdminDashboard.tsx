@@ -171,50 +171,73 @@ export default function AdminDashboard() {
 
   const loadAllRegisteredUsers = async () => {
     try {
-      console.log('🔍 Cargando usuarios de app_sessions (usuarios registrados que han iniciado sesión)');
+      console.log('🔍 Cargando usuarios del sistema');
       
-      // NOTA: Usamos app_sessions como fuente de verdad de usuarios registrados
-      // porque auth.users no es directamente consultable por políticas de seguridad
-      const { data: sessions, error: sessionsError } = await supabase
-        .from('app_sessions')
-        .select('user_id, session_start, app_name, platform')
-        .order('session_start', { ascending: false });
-
-      if (sessionsError) {
-        console.error('❌ Error cargando sesiones:', sessionsError.message);
+      // Si no hay datos en app_sessions, al menos mostrar el usuario autenticado actual
+      if (!user?.email) {
+        console.warn('⚠️ No hay usuario autenticado');
         setAllRegisteredUsers([]);
         return;
       }
 
-      console.log(`✅ Sesiones encontradas: ${(sessions || []).length}`);
+      // Intento 1: Obtener de app_sessions agrupado por usuario
+      const { data: sessions, error: sessionError } = await supabase
+        .from('app_sessions')
+        .select('user_id, session_start, app_name, platform')
+        .limit(1000);
 
-      // Agrupar por usuario_id para obtener usuarios únicos
-      const userMap = new Map<string, any>();
-      
-      (sessions || []).forEach((session: any) => {
-        if (!userMap.has(session.user_id)) {
-          userMap.set(session.user_id, {
-            id: session.user_id,
-            userId: session.user_id,
-            lastActivity: session.session_start,
-            apps: [session.app_name],
-            sessionCount: 1,
-            platforms: [session.platform]
-          });
-        } else {
-          const user = userMap.get(session.user_id)!;
-          user.sessionCount += 1;
-          if (!user.apps.includes(session.app_name)) {
-            user.apps.push(session.app_name);
-          }
-          if (!user.platforms.includes(session.platform)) {
-            user.platforms.push(session.platform);
-          }
-        }
-      });
+      let users: any[] = [];
 
-      // Convertir a array y agregar información adicional
-      const users = Array.from(userMap.values()).map(u => {
+      if (sessionError) {
+        console.warn('⚠️ app_sessions no disponible:', sessionError.message);
+      } else if (sessions && sessions.length > 0) {
+        console.log(`✅ Sesiones encontradas: ${sessions.length}`);
+        
+        // Agrupar por usuario_id para obtener usuarios únicos
+        const userMap = new Map<string, any>();
+        
+        sessions.forEach((session: any) => {
+          const userId = session.user_id;
+          if (!userMap.has(userId)) {
+            userMap.set(userId, {
+              id: userId,
+              userId: userId,
+              lastActivity: session.session_start,
+              apps: [session.app_name],
+              sessionCount: 1,
+              platforms: [session.platform]
+            });
+          } else {
+            const u = userMap.get(userId)!;
+            u.sessionCount += 1;
+            if (!u.apps.includes(session.app_name)) {
+              u.apps.push(session.app_name);
+            }
+            if (!u.platforms.includes(session.platform)) {
+              u.platforms.push(session.platform);
+            }
+          }
+        });
+
+        users = Array.from(userMap.values());
+      }
+
+      // Si no hay sesiones, al menos mostrar el usuario actual
+      if (users.length === 0 && user?.email) {
+        console.log('📌 Mostrando usuario autenticado actual:', user.email);
+        users = [{
+          id: user.id || 'unknown',
+          userId: user.id || 'unknown',
+          email: user.email,
+          lastActivity: new Date().toISOString(),
+          isBlocked: false,
+          status: 'En línea',
+          metadata: { note: 'Usuario autenticado actual' }
+        }];
+      }
+
+      // Agregar información adicional a cada usuario
+      const usersWithInfo = users.map(u => {
         let status = 'Inactivo';
         if (u.lastActivity) {
           const lastActivity = new Date(u.lastActivity);
@@ -232,25 +255,35 @@ export default function AdminDashboard() {
 
         return {
           id: u.id,
-          email: u.userId, // Usar ID como placeholder
+          email: u.email || u.userId,
           createdAt: u.lastActivity,
           lastSignIn: u.lastActivity,
           lastActivity: u.lastActivity,
-          isBlocked: false,
+          isBlocked: u.isBlocked || false,
           status: status,
-          metadata: {
-            apps: u.apps,
-            platforms: u.platforms,
-            sessionCount: u.sessionCount
-          }
+          metadata: u.metadata || { apps: u.apps, platforms: u.platforms, sessionCount: u.sessionCount }
         };
       });
 
-      console.log(`✅ Usuarios únicos encontrados: ${users.length}`);
-      setAllRegisteredUsers(users);
+      console.log(`✅ Total usuarios a mostrar: ${usersWithInfo.length}`);
+      setAllRegisteredUsers(usersWithInfo);
     } catch (err: any) {
-      console.error('❌ Error crítico en loadAllRegisteredUsers:', err.message || err);
-      setAllRegisteredUsers([]);
+      console.error('❌ Error en loadAllRegisteredUsers:', err.message || err);
+      // Fallback: mostrar usuario actual
+      if (user?.email) {
+        setAllRegisteredUsers([{
+          id: user.id || 'unknown',
+          email: user.email,
+          createdAt: new Date().toISOString(),
+          lastSignIn: new Date().toISOString(),
+          lastActivity: new Date().toISOString(),
+          isBlocked: false,
+          status: 'En línea',
+          metadata: {}
+        }]);
+      } else {
+        setAllRegisteredUsers([]);
+      }
     }
   };
 
