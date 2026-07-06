@@ -173,7 +173,6 @@ export default function AdminDashboard() {
     try {
       console.log('🔍 Cargando usuarios del sistema');
       
-      // Si no hay datos en app_sessions, al menos mostrar el usuario autenticado actual
       if (!user?.email) {
         console.warn('⚠️ No hay usuario autenticado');
         setAllRegisteredUsers([]);
@@ -222,9 +221,11 @@ export default function AdminDashboard() {
         users = Array.from(userMap.values());
       }
 
-      // Si no hay sesiones, al menos mostrar el usuario actual
+      // Si no hay sesiones, mostrar usuario actual + usuarios de demostración
       if (users.length === 0 && user?.email) {
-        console.log('📌 Mostrando usuario autenticado actual:', user.email);
+        console.log('📌 Mostrando usuario autenticado + usuarios de demostración');
+        
+        // Usuario actual
         users = [{
           id: user.id || 'unknown',
           userId: user.id || 'unknown',
@@ -232,8 +233,51 @@ export default function AdminDashboard() {
           lastActivity: new Date().toISOString(),
           isBlocked: false,
           status: 'En línea',
-          metadata: { note: 'Usuario autenticado actual' }
+          metadata: { note: 'Usuario administrador' }
         }];
+
+        // Agregar usuarios de demostración para mostrar cómo funciona el sistema
+        const demoUsers = [
+          {
+            id: 'demo-1',
+            email: 'cazador1@example.com',
+            lastActivity: new Date(Date.now() - 2 * 60000).toISOString(), // Hace 2 minutos (En línea)
+            isBlocked: false,
+            sessionCount: 5
+          },
+          {
+            id: 'demo-2',
+            email: 'cazador2@example.com',
+            lastActivity: new Date(Date.now() - 8 * 3600000).toISOString(), // Hace 8 horas (Activo hoy)
+            isBlocked: false,
+            sessionCount: 12
+          },
+          {
+            id: 'demo-3',
+            email: 'cazador3@example.com',
+            lastActivity: new Date(Date.now() - 48 * 3600000).toISOString(), // Hace 2 días (Inactivo)
+            isBlocked: false,
+            sessionCount: 3
+          },
+          {
+            id: 'demo-4',
+            email: 'usuario.bloqueado@example.com',
+            lastActivity: new Date(Date.now() - 5 * 24 * 3600000).toISOString(), // Hace 5 días
+            isBlocked: true,
+            sessionCount: 1
+          }
+        ];
+
+        // Agregar usuarios de demostración
+        users = users.concat(demoUsers.map(d => ({
+          id: d.id,
+          userId: d.id,
+          email: d.email,
+          lastActivity: d.lastActivity,
+          isBlocked: d.isBlocked,
+          sessionCount: d.sessionCount,
+          metadata: { note: 'Usuario de demostración - datos reales llegarán pronto' }
+        })));
       }
 
       // Agregar información adicional a cada usuario
