@@ -1,0 +1,1849 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5630
+>>
+stream
+0.200025 w
+0 G
+BT
+/F2 22 Tf
+25.2999999999999972 TL
+0 g
+48. 777.8899999999999864 Td
+(Manual Completo - Mi Batida) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 743.8899999999999864 Td
+(Version del manual: 4/7/2026, 17:54:05) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 720.8899999999999864 Td
+(Este documento explica el uso completo de la app Mi Batida para organizacion de batidas,) Tj
+T* (colaboracion entre usuarios, uso de mapa, registros, alertas, chat y funciones offline.) Tj
+ET
+0.71 G
+48. 682.8899999999999864 m
+547.2799999999999727 682.8899999999999864 l
+S
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 668.8899999999999864 Td
+(1. Objetivo de la app) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 646.8899999999999864 Td
+(Mi Batida ayuda a coordinar una batida en tiempo real. Permite crear y gestionar batidas, compartir) Tj
+T* (codigos de invitacion, registrar piezas, ver posiciones en mapa, enviar SOS, compartir mensajes, usar) Tj
+T* (alertas y trabajar con informacion incluso cuando hay problemas de cobertura.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 593.8899999999999864 Td
+(2. Requisitos minimos) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 571.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 571.8899999999999864 Td
+(Telefono Android con GPS activo.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 552.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 552.8899999999999864 Td
+(Conexion a internet para sincronizacion inicial y colaboracion en tiempo real.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 533.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 533.8899999999999864 Td
+(Permisos de ubicacion para posicion y mapa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 514.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 514.8899999999999864 Td
+(Opcional: permisos de notificaciones/sonido para avisos SOS.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 491.8899999999999864 Td
+(3. Inicio de sesion y perfil) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 469.8899999999999864 Td
+(3.1 Registro / acceso) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 451.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 451.8899999999999864 Td
+(Accede con correo y contrasena.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 432.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 432.8899999999999864 Td
+(Si olvidas la contrasena, usa recuperacion con pregunta de seguridad.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 409.8899999999999864 Td
+(3.2 Perfil) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 391.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 391.8899999999999864 Td
+(Editar nombre visible.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 372.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 372.8899999999999864 Td
+(Subir o cambiar foto de perfil.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 353.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 353.8899999999999864 Td
+(Configurar pregunta y respuesta de seguridad.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 334.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 334.8899999999999864 Td
+(Cerrar sesion.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 311.8899999999999864 Td
+(4. Flujo general de batidas) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 289.8899999999999864 Td
+(4.1 Crear batida) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 271.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 271.8899999999999864 Td
+(En pantalla principal pulsa Crear batida.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 252.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 252.8899999999999864 Td
+(Define nombre y cupos por especie.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 233.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 233.8899999999999864 Td
+(Puedes incluir especies personalizadas.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 214.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 214.8899999999999864 Td
+(Selecciona tu rol inicial \(postura o perrero\).) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 191.8899999999999864 Td
+(4.2 Unirse con codigo) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 173.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 173.8899999999999864 Td
+(Pulsa Unirse con codigo.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 154.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 154.8899999999999864 Td
+(Introduce el codigo de invitacion.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 135.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 135.8899999999999864 Td
+(Selecciona rol y, si aplica, nombre de puesto.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 112.8899999999999864 Td
+(4.3 Estados de miembro) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 94.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 94.8899999999999864 Td
+(Pendiente: esperando aprobacion de admin.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 75.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 75.8899999999999864 Td
+(Activo: participa normalmente.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.431 g
+48. 24. Td
+(Mi Batida - Manual de uso - Pagina 1/4) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 6199
+>>
+stream
+0.200025 w
+0.71 G
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 785.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 785.8899999999999864 Td
+(Abandonado: salio de la batida \(puede volver\).) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 762.8899999999999864 Td
+(5. Compartir invitaciones) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 740.8899999999999864 Td
+(5.1 Compartir por WhatsApp) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 722.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 722.8899999999999864 Td
+(Desde Info de la batida puedes copiar codigo o compartir por WhatsApp.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 703.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 703.8899999999999864 Td
+(El mensaje incluye enlace directo para abrir la app y entrar con codigo.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 684.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 684.8899999999999864 Td
+(Formato de enlace directo: mibatida://join?code=CODIGO.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 661.8899999999999864 Td
+(5.2 Enlace de respaldo) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 643.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 643.8899999999999864 Td
+(Tambien se incluye enlace web con parametro invite.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 624.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 624.8899999999999864 Td
+(Si abres la app desde ese enlace, se precarga el codigo automaticamente.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 601.8899999999999864 Td
+(6. Mapa en tiempo real) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 579.8899999999999864 Td
+(6.1 Capas disponibles) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 561.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 561.8899999999999864 Td
+(Calles.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 542.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 542.8899999999999864 Td
+(Satelite.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 523.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 523.8899999999999864 Td
+(Satelite hibrido.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 500.8899999999999864 Td
+(6.2 Elementos del mapa) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 482.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 482.8899999999999864 Td
+(Tu posicion y posicion de miembros activos.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 463.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 463.8899999999999864 Td
+(Rastros marcados por usuarios.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 444.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 444.8899999999999864 Td
+(Puestos de la batida.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 425.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 425.8899999999999864 Td
+(Alertas de perros y SOS en mapa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 406.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 406.8899999999999864 Td
+(Rutas historicas \(si activas filtro de rutas\).) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 383.8899999999999864 Td
+(6.3 Filtros utiles) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 365.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 365.8899999999999864 Td
+(Mostrar/ocultar Yo, perreros, posturas, rastros, rutas, alertas y puestos.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 346.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 346.8899999999999864 Td
+(Los filtros ayudan en terrenos cargados de marcadores.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 323.8899999999999864 Td
+(7. GPS y SOS) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 301.8899999999999864 Td
+(7.1 GPS) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 283.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 283.8899999999999864 Td
+(Modo manual o intervalo automatico \(1, 5, 10 min\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 264.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 264.8899999999999864 Td
+(Boton Enviar GPS para enviar ubicacion al instante.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 245.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 245.8899999999999864 Td
+(Boton centrar para volver a tu posicion.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 222.8899999999999864 Td
+(7.2 SOS) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 204.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 204.8899999999999864 Td
+(Pulsar SOS envia aviso al chat con coordenadas y enlace de mapa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 185.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 185.8899999999999864 Td
+(El propio emisor tambien oye el aviso sonoro.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 166.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 166.8899999999999864 Td
+(Puedes cancelar SOS activo con el mismo boton.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 143.8899999999999864 Td
+(8. Registro de piezas) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 121.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 121.8899999999999864 Td
+(Registro por tipo: cazado, herido, escapado.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 102.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 102.8899999999999864 Td
+(Soporte de especies configuradas y variantes de jabali.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 83.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 83.8899999999999864 Td
+(Admins pueden registrar por otros miembros segun permisos.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.431 g
+48. 24. Td
+(Mi Batida - Manual de uso - Pagina 2/4) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 6325
+>>
+stream
+0.200025 w
+0.71 G
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 785.8899999999999864 Td
+(9. Chat de la batida) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 763.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 763.8899999999999864 Td
+(Mensajes de texto e imagen.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 744.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 744.8899999999999864 Td
+(Actualizacion en tiempo real y contador de no leidos.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 725.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 725.8899999999999864 Td
+(Enlaces detectados y clicables en mensajes.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 702.8899999999999864 Td
+(10. Alertas de perros y rastros) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 680.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 680.8899999999999864 Td
+(Alertas: perro cogido, perro visto, perro por la zona.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 661.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 661.8899999999999864 Td
+(Posibilidad de incluir datos \(color, raza, direccion, propietario, nota\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 642.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 642.8899999999999864 Td
+(Rastros con especie, antiguedad y direccion.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 619.8899999999999864 Td
+(11. Totales, historial e informes) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 597.8899999999999864 Td
+(11.1 Totales en vivo) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 579.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 579.8899999999999864 Td
+(Resumen por especie y tipo de registro.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 560.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 560.8899999999999864 Td
+(Transcripcion en vivo con hora:min de actividad relevante.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 537.8899999999999864 Td
+(11.2 Historial de batidas finalizadas) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 519.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 519.8899999999999864 Td
+(Detalle de batida finalizada.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 500.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 500.8899999999999864 Td
+(Transcripcion completa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 481.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 481.8899999999999864 Td
+(Exportacion en PDF del informe final.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 458.8899999999999864 Td
+(12. Modo offline de mapas) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 436.8899999999999864 Td
+(12.1 Crear mapa offline) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 418.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 418.8899999999999864 Td
+(Selecciona capa de mapa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 399.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 399.8899999999999864 Td
+(Define nombre del mapa offline.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 380.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 380.8899999999999864 Td
+(Elige zoom minimo y maximo.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 361.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 361.8899999999999864 Td
+(Selecciona zona tocando y arrastrando en el mapa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 342.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 342.8899999999999864 Td
+(Descarga y guarda para uso sin cobertura.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 319.8899999999999864 Td
+(12.2 Mis mapas offline \(Perfil\)) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 301.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 301.8899999999999864 Td
+(Listado de mapas guardados con nombre, capa, zoom y fecha.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 282.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 282.8899999999999864 Td
+(Boton Compartir para enviar mapa al chat.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 263.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 263.8899999999999864 Td
+(Borrado completo recomendado: elimina entrada y teselas no compartidas con otros mapas.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 240.8899999999999864 Td
+(12.3 Compartir mapas offline en chat) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 222.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 222.8899999999999864 Td
+(Desde Perfil puedes compartir un mapa guardado al chat de la batida activa.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 203.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 203.8899999999999864 Td
+(Cualquier miembro puede pulsar Descargar mapa offline en ese mensaje.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 184.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 184.8899999999999864 Td
+(Al descargar, se guarda en su dispositivo para uso sin cobertura.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 161.8899999999999864 Td
+(13. Cola offline de acciones) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 139.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 139.8899999999999864 Td
+(Si no hay conexion, ciertas acciones se encolan \(mensaje, posicion, rastros, puestos, SOS segun) Tj
+T* (flujo\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 105.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 105.8899999999999864 Td
+(Al recuperar internet, la cola se sincroniza automaticamente.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 86.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 86.8899999999999864 Td
+(En cabecera veras estado de red y numero de pendientes.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.431 g
+48. 24. Td
+(Mi Batida - Manual de uso - Pagina 3/4) Tj
+ET
+endstream
+endobj
+9 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 10 0 R
+>>
+endobj
+10 0 obj
+<<
+/Length 4853
+>>
+stream
+0.200025 w
+0.71 G
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 785.8899999999999864 Td
+(14. Roles y administracion) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 763.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 763.8899999999999864 Td
+(Admins pueden aprobar/rechazar solicitudes pendientes.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 744.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 744.8899999999999864 Td
+(Silenciar o expulsar miembros segun reglas de la batida.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 725.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 725.8899999999999864 Td
+(Promover otros admins.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 706.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 706.8899999999999864 Td
+(Finalizar batida cuando termina la jornada.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 683.8899999999999864 Td
+(15. Buenas practicas de operacion) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 661.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 661.8899999999999864 Td
+(Antes de salir al campo, descarga mapas offline de zonas clave.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 642.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 642.8899999999999864 Td
+(Verifica GPS y permisos antes de empezar.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 623.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 623.8899999999999864 Td
+(Usa nombres claros para puestos y mapas offline.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 604.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 604.8899999999999864 Td
+(Comparte SOS solo para emergencias reales.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 585.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 585.8899999999999864 Td
+(Al finalizar, revisa informe y guarda PDF para archivo.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 562.8899999999999864 Td
+(16. Guia rapida de resolucion de problemas) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 540.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 540.8899999999999864 Td
+(No veo marcadores: revisa filtros del mapa y conexion.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 521.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 521.8899999999999864 Td
+(No puedo enviar mensajes: revisa estado offline y cola pendiente.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 502.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 502.8899999999999864 Td
+(No abre enlace de invitacion: confirma que la app esta instalada y actualizada.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 483.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 483.8899999999999864 Td
+(No descarga mapa offline: reduce zona o niveles de zoom.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 464.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 464.8899999999999864 Td
+(No suena SOS: desbloquea audio de la app con una interaccion previa.) Tj
+ET
+BT
+/F2 16 Tf
+18.3999999999999986 TL
+0 g
+48. 441.8899999999999864 Td
+(17. Checklist previo a batida real) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 419.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 419.8899999999999864 Td
+(Perfil actualizado \(nombre/foto\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 400.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 400.8899999999999864 Td
+(Pregunta de seguridad configurada.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 381.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 381.8899999999999864 Td
+(Mapa offline descargado y probado.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 362.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 362.8899999999999864 Td
+(Capa correcta seleccionada para la zona.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 343.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 343.8899999999999864 Td
+(Admins asignados y roles revisados.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 324.8899999999999864 Td
+(-) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+60. 324.8899999999999864 Td
+(Prueba de chat y GPS completada.) Tj
+ET
+0.71 G
+48. 301.8899999999999864 m
+547.2799999999999727 301.8899999999999864 l
+S
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 287.8899999999999864 Td
+(Fin del manual. Documento generado automaticamente desde el proyecto Mi Batida.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.431 g
+48. 24. Td
+(Mi Batida - Manual de uso - Pagina 4/4) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R 9 0 R ]
+/Count 4
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+23 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+24 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 11 0 R
+/F2 12 0 R
+/F3 13 0 R
+/F4 14 0 R
+/F5 15 0 R
+/F6 16 0 R
+/F7 17 0 R
+/F8 18 0 R
+/F9 19 0 R
+/F10 20 0 R
+/F11 21 0 R
+/F12 22 0 R
+/F13 23 0 R
+/F14 24 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+25 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260704175405+02'00')
+>>
+endobj
+26 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 27
+0000000000 65535 f 
+0000023780 00000 n 
+0000025620 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005834 00000 n 
+0000005971 00000 n 
+0000012222 00000 n 
+0000012359 00000 n 
+0000018736 00000 n 
+0000018874 00000 n 
+0000023855 00000 n 
+0000023981 00000 n 
+0000024112 00000 n 
+0000024246 00000 n 
+0000024384 00000 n 
+0000024508 00000 n 
+0000024637 00000 n 
+0000024769 00000 n 
+0000024905 00000 n 
+0000025033 00000 n 
+0000025160 00000 n 
+0000025289 00000 n 
+0000025422 00000 n 
+0000025524 00000 n 
+0000025873 00000 n 
+0000025959 00000 n 
+trailer
+<<
+/Size 27
+/Root 26 0 R
+/Info 25 0 R
+/ID [ <E8F200D93CBBDA4C3E1FB96D423373D5> <E8F200D93CBBDA4C3E1FB96D423373D5> ]
+>>
+startxref
+26063
+%%EOF

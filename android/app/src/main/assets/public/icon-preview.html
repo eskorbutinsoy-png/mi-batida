@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preview Icono Mi Batida</title>
+    <style>
+      :root {
+        --bg: #f4f8ef;
+        --card: #ffffff;
+        --text: #1d2a14;
+        --accent: #4a7b2a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 20% 10%, #dbeac7 0%, var(--bg) 45%, #e9f1df 100%);
+        color: var(--text);
+        font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .card {
+        width: min(92vw, 820px);
+        background: var(--card);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 20px 50px rgba(40, 70, 15, 0.14);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      }
+      p {
+        margin: 0 0 18px;
+        color: #3e5f2f;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 14px;
+      }
+      .item {
+        border: 1px solid #dce8cf;
+        border-radius: 14px;
+        padding: 14px;
+        text-align: center;
+        background: #fbfef7;
+      }
+      .mock {
+        margin: 0 auto 10px;
+        border-radius: 22%;
+        object-fit: cover;
+        display: block;
+      }
+      .round {
+        border-radius: 50%;
+      }
+      .s16 { width: 16px; height: 16px; }
+      .s32 { width: 32px; height: 32px; }
+      .s48 { width: 48px; height: 48px; }
+      .s72 { width: 72px; height: 72px; }
+      .s96 { width: 96px; height: 96px; }
+      .s144 { width: 96px; height: 96px; }
+      .label { font-size: 0.9rem; font-weight: 600; }
+      .hint { font-size: 0.78rem; color: #5d7c50; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Asi quedaria tu icono</h1>
+      <p>Preview de tamaños tipicos en Android y web con la imagen imagebatida.</p>
+      <section class="grid">
+        <article class="item">
+          <img class="mock s16" src="/favicon-16x16.png" alt="16" />
+          <div class="label">16x16</div>
+          <div class="hint">favicon pequeno</div>
+        </article>
+        <article class="item">
+          <img class="mock s32" src="/favicon-32x32.png" alt="32" />
+          <div class="label">32x32</div>
+          <div class="hint">favicon navegador</div>
+        </article>
+        <article class="item">
+          <img class="mock s48" src="/icon-192.png" alt="48" />
+          <div class="label">48x48</div>
+          <div class="hint">Android mdpi</div>
+        </article>
+        <article class="item">
+          <img class="mock round s72" src="/icon-192.png" alt="72" />
+          <div class="label">72x72 round</div>
+          <div class="hint">Android hdpi</div>
+        </article>
+        <article class="item">
+          <img class="mock s96" src="/icon-192.png" alt="96" />
+          <div class="label">96x96</div>
+          <div class="hint">Android xhdpi</div>
+        </article>
+        <article class="item">
+          <img class="mock s144" src="/icon-192.png" alt="192" />
+          <div class="label">192x192</div>
+          <div class="hint">PWA / launcher</div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

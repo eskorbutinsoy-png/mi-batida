@@ -1,0 +1,55 @@
+Bienvenido a Mi Batida.
+
+En este vídeo vamos a recorrer la app completa, con calma y con imágenes reales de cada pantalla, para ver cómo se organiza una batida desde la preparación hasta el cierre final.
+
+Empezamos en la pantalla principal. Desde aquí se entiende todo el flujo de la aplicación: crear una batida nueva, unirse a una batida con código, entrar a una batida activa, revisar el historial y acceder al perfil personal. Es la puerta de entrada de todo el sistema.
+
+Si entramos en crear batida, vemos la parte más importante para arrancar una jornada. Aquí se define el nombre de la batida, los cupos por especie y el rol inicial del usuario. También se pueden ajustar especies autorizadas para controlar qué registros estarán disponibles durante la jornada. La idea es dejarlo todo preparado antes de salir al campo, con una estructura clara desde el minuto uno.
+
+En la pantalla de unirse con código, la cuadrilla puede acceder a la batida sin complicaciones. Basta con introducir el código de invitación y entrar con el rol correcto. Este punto es útil para compartir la batida por WhatsApp o por cualquier otro canal y que cada miembro se incorpore directamente al grupo de trabajo.
+
+La vista de batida activa muestra las jornadas en curso en las que participas. Desde aquí se entra a la operación real, con acceso directo a la coordinación del equipo. Es la pantalla que confirma que la sesión está viva, que hay actividad y que la organización ya está en marcha.
+
+Una vez dentro, la pantalla principal de trabajo es el mapa. Aquí se concentra la coordinación en tiempo real. Se ven posiciones, puestos, rastros, alertas y todos los elementos importantes para saber qué está pasando en campo. El mapa no es solo una referencia visual: es el centro operativo desde el que se toman decisiones.
+
+En la parte superior tenemos los controles rápidos. El botón SOS permite avisar al grupo al instante si ocurre una incidencia. El selector de GPS permite enviar posición manualmente o por intervalos automáticos, según lo que necesites en ese momento. Y el acceso a filtros sirve para decidir qué capas o elementos quieres ver en pantalla para no saturarte de información.
+
+Cuando activamos los filtros, la app deja más visible la lógica del trabajo en campo. Puedes centrarte en lo que importa en cada momento, simplificando el mapa para ver solo los elementos relevantes. Esto ayuda mucho cuando hay movimiento, ruido y varias cosas ocurriendo a la vez.
+
+El envío de GPS es otra pieza clave. Con un solo toque puedes mandar tu posición al grupo, y así todos saben dónde estás sin tener que escribir mensajes manuales. En jornadas largas, esta automatización ahorra tiempo y reduce errores.
+
+Si aparece una situación delicada, el botón SOS permite lanzar un aviso inmediato. El objetivo es que el resto del equipo vea rápido que hay una incidencia y pueda reaccionar sin perder tiempo. En una batida, la coordinación y la velocidad de aviso son esenciales.
+
+Pasamos ahora a registro. Esta pantalla es la base del control de piezas y acontecimientos. Aquí se anotan las capturas, las piezas heridas y las escapadas, además de cualquier observación que convenga dejar documentada. Es la parte que convierte la jornada en datos útiles y trazables.
+
+El registro no solo sirve durante la batida. También alimenta el informe final, el historial y el resumen de resultados. Por eso es importante mantenerlo actualizado en el momento, sin dejarlo para el final.
+
+En totales vemos el resumen operativo en tiempo real. Esta pantalla ayuda a saber cómo va la batida, cuántas piezas se han registrado y cómo se distribuyen los resultados por especie. Es una vista rápida para tomar decisiones y comprobar de un vistazo el estado general de la jornada.
+
+Después está el chat, que funciona como canal de comunicación central entre todos los participantes. Aquí se comparten avisos, mensajes, contexto de campo e incidencias. Tener el chat integrado en la propia batida evita saltar entre aplicaciones y mantiene toda la conversación vinculada al evento.
+
+La pantalla de alerta está pensada para situaciones concretas, especialmente perros vistos, perros puestos y avisos rápidos relacionados con la seguridad o el desarrollo de la batida. Es una forma de informar visualmente y dejar rastro de algo importante que el resto del equipo debe conocer.
+
+Ahora pasamos a la sección de batida. Aquí está la parte de gestión y organización general. El administrador puede revisar el estado de la sesión, ver el equipo, comprobar la actividad y compartir información relevante. También es la zona desde donde se maneja la invitación y se mantiene controlado el funcionamiento global de la jornada.
+
+En esta misma sección se entiende mejor la identidad de la batida, su estado actual y su dinámica interna. Es la parte administrativa y de control que complementa el uso operativo del mapa y del chat.
+
+Entramos después en el perfil. El perfil permite revisar tus datos, cambiar tu foto, ajustar tu información personal y mantener la cuenta lista para trabajar. Tener el perfil visible dentro de la app hace que todo sea más cómodo, porque no obliga a salir a otro sitio para cambiar detalles básicos.
+
+Dentro del perfil aparece también la sección de mapas offline. Esta función es especialmente importante cuando se trabaja en zonas con poca cobertura o sin conexión estable. Aquí puedes ver los mapas que ya tienes descargados y gestionarlos desde el propio móvil.
+
+Los mapas offline permiten preparar zonas concretas con antelación. Puedes darles nombre, decidir la capa de mapa que quieres usar y conservarlos para consultarlos después sin depender de internet. Esto es clave en campo, donde no siempre hay red ni cobertura suficiente.
+
+Además, esos mapas offline se pueden compartir por chat. Así, si un compañero necesita la misma zona cartográfica, puede descargarla directamente y trabajar con la misma base visual. Esto evita duplicidades y mejora mucho la coordinación entre dispositivos.
+
+La descarga compartida de mapas también simplifica el reparto de recursos entre los miembros del equipo. Un usuario prepara la zona y el resto la recibe desde el chat, manteniendo todos el mismo contexto cartográfico sin tener que repetir el trabajo.
+
+Si volvemos al flujo general, queda claro que Mi Batida no se limita a registrar piezas. La app acompaña toda la jornada: preparación, invitación, acceso, posicionamiento, avisos, comunicación, control operativo y cierre final. Es una herramienta diseñada para que el equipo trabaje de manera ordenada y con trazabilidad.
+
+Al terminar la jornada, la información recogida se traslada al informe y al historial. Esto permite consultar batidas anteriores, revisar lo ocurrido y conservar una memoria completa de cada salida. Tener el historial integrado hace que la app no sea solo una herramienta de uso diario, sino también un archivo útil para seguimiento y consulta.
+
+En el cierre final, el objetivo es muy claro: revisar lo que ha pasado, cerrar la batida y dejar todo documentado. El informe final ayuda a resumir la jornada, compartir resultados y conservar una versión ordenada de lo sucedido.
+
+Mi Batida está pensada para cubrir todo el ciclo de trabajo con una sola aplicación: crear, unir, coordinar, avisar, registrar, consultar, compartir y cerrar. Cada pantalla aporta algo al flujo general y, juntas, forman una experiencia completa para la cuadrilla.
+
+Con esto cerramos el recorrido completo. Gracias por ver el vídeo y por seguir el paso a paso de la aplicación.

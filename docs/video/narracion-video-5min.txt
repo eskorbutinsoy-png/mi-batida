@@ -1,0 +1,41 @@
+Bienvenido a Mi Batida.
+
+En este recorrido de cinco minutos vamos a ver, paso a paso, cómo preparar una batida completa desde cero, coordinar al equipo durante la jornada y finalizar con el informe de resultados.
+
+Empezamos en la pantalla principal. Aquí tienes los accesos directos a todo el flujo: crear batida, unirse por código, entrar en batida activa, consultar historial y gestionar tu perfil.
+
+Primero, crear batida. En esta pantalla defines el nombre de la jornada, configuras los cupos por especie y decides tu rol inicial, perrero o postura. También puedes ajustar especies autorizadas y dejar la batida lista para trabajar de forma ordenada desde el inicio.
+
+Después pasamos a unirse con código. Este bloque es el acceso rápido para el resto de la cuadrilla. Solo hace falta introducir el código de invitación, elegir rol y, si corresponde, indicar el puesto. Con esto, cada participante entra con su perfil y queda integrado en la operativa de la batida.
+
+En batida activa ves las jornadas en curso en las que participas. Desde aquí puedes entrar directamente a la sesión de trabajo o copiar el código de invitación para compartirlo.
+
+Una vez dentro, la pantalla principal de trabajo es el mapa. En el mapa se centraliza la coordinación en tiempo real: posiciones del equipo, rastros, puestos, alertas y visualización por capas. Puedes usar calles, satélite o híbrido, y activar filtros para mostrar solo la información que necesitas en cada momento.
+
+El GPS permite enviar posición manualmente o por intervalos automáticos. Además, puedes centrar el mapa en tu ubicación para recuperar contexto rápidamente cuando hay movimiento en campo.
+
+Si aparece una situación de riesgo, el botón SOS permite avisar al grupo de forma inmediata. El aviso queda en chat con ubicación y facilita una reacción rápida del equipo.
+
+Ahora entramos en registro. Aquí se anotan piezas cazadas, heridas o escapadas, con su especie y observaciones. Este registro alimenta estadísticas en vivo y el informe final de la batida.
+
+La sección de totales muestra el resumen operativo en tiempo real. Puedes ver conteos por especie, evolución de la jornada y actividad consolidada para tomar decisiones durante la acción.
+
+En chat, la cuadrilla mantiene comunicación continua. Se comparten mensajes, incidencias y contexto de campo para que todos trabajen alineados y con trazabilidad.
+
+La pantalla de alerta está orientada a incidencias de perros y avisos rápidos. Permite reportar visualmente situaciones que afectan al desarrollo de la batida y mejorar la coordinación entre puestos y perreros.
+
+En información de batida está la parte de gestión. Desde aquí el administrador puede revisar participantes, roles, estado de la sesión y acciones de control. También se comparte el enlace de invitación, incluido el acceso directo para unirse desde WhatsApp.
+
+La sección de perfil interna permite mantener tus datos al día y gestionar recursos personales como mapas offline guardados.
+
+Y hablando de modo sin cobertura, Mi Batida incluye descarga de mapas offline por zona. Puedes seleccionar una capa, poner nombre al mapa, marcar área y descargarla para usarla en campo cuando no haya red. Es una función clave para continuidad operativa.
+
+Además, esos mapas offline se pueden compartir por chat para que otros miembros del equipo los descarguen en su propio dispositivo y mantengan la misma base cartográfica.
+
+Cuando termina la jornada, el flujo ideal es finalizar batida, revisar historial y abrir el detalle del informe. Desde ahí puedes consultar la cronología y exportar el PDF final para archivo, seguimiento o cierre administrativo.
+
+En resumen, Mi Batida te permite cubrir el ciclo completo: preparación, ejecución, comunicación, seguridad, trabajo offline y cierre con informe.
+
+Con este flujo, la cuadrilla gana orden, velocidad de coordinación y mejor control en cada fase de la batida.
+
+Gracias por ver este tutorial completo.

@@ -1,0 +1,33 @@
+Bienvenido a Mi Batida.
+
+En este video vas a ver, de principio a fin, como usar la aplicacion para organizar una batida completa, coordinar a los participantes en tiempo real, trabajar con cobertura limitada y cerrar la jornada con informe final.
+
+Empezamos por el acceso y el perfil. Desde aqui puedes definir tu nombre visible, subir tu foto y configurar la pregunta de seguridad para recuperar la contrasena cuando lo necesites.
+
+Ahora vamos a crear una batida nueva. Indicamos nombre, cupos por especie y nuestro rol inicial. Una vez creada, la aplicacion genera un codigo de invitacion para que se una el resto de la cuadrilla.
+
+En la informacion de la batida podemos compartir por WhatsApp. Este mensaje incluye un enlace directo de entrada. Al abrirlo desde el movil, la app puede precargar el codigo e intentar entrar automaticamente en la batida.
+
+Pasamos al mapa en vivo. Aqui vemos posiciones de perreros y posturas, rastros, puestos, alertas y rutas. Puedes activar o desactivar filtros para limpiar la vista segun el momento de la jornada.
+
+Con el boton de GPS puedes enviar tu ubicacion manualmente o activar intervalos automaticos. Y si necesitas volver rapido a tu posicion, usa el boton de centrado.
+
+Si hay una emergencia, pulsa SOS. La app envia un aviso al chat con tus coordenadas y enlace de mapa. El aviso sonoro se reproduce para que todo el equipo pueda reaccionar rapido. Cuando la situacion se resuelve, puedes cancelar el SOS activo.
+
+Ahora vemos el registro de piezas. Puedes registrar cazado, herido o escapado, con especie y detalle adicional. Estos datos alimentan los totales de la batida y el informe final.
+
+Tambien tenemos alertas de perros, con tipo de alerta, ubicacion y notas. Esto ayuda a coordinar movimientos y evitar perdidas durante la accion.
+
+En el chat de la batida puedes enviar texto e imagenes. Es el canal operativo central para la linea y para coordinar incidencias en tiempo real.
+
+Una funcion clave es el mapa offline. Seleccionamos capa, ponemos nombre al mapa, definimos zoom y marcamos zona tocando y arrastrando. Luego descargamos para usar sin cobertura.
+
+Ese mapa queda guardado en perfil, dentro de Mis mapas offline. Desde ahi puedes compartirlo al chat para que otros miembros lo descarguen en su dispositivo y tambien trabajen offline.
+
+En Totales ves el estado en vivo: registros por especie, resumen por participante y transcripcion de actividad.
+
+Cuando la batida finaliza, en historial puedes abrir el detalle y exportar el informe en PDF para archivo y trazabilidad.
+
+En resumen, Mi Batida centraliza la operativa de campo, mejora coordinacion del equipo y aporta seguridad, incluso en zonas con cobertura irregular.
+
+Gracias por ver este recorrido completo. Si quieres, en el siguiente video te mostramos el flujo rapido para preparar una batida real en menos de cinco minutos.

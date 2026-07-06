@@ -1,0 +1,11 @@
+file '01-menu.png'
+duration 37
+file '02-crear.png'
+duration 37
+file '03-unirse.png'
+duration 37
+file '04-perfil.png'
+duration 37
+file '05-historial.png'
+duration 37
+file '05-historial.png'

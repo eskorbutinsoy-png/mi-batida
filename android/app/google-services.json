@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711108890470",
+    "project_id": "mibatida-push",
+    "storage_bucket": "mibatida-push.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711108890470:android:c68fa7679fc8bb507202a7",
+        "android_client_info": {
+          "package_name": "com.mibatida.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI_4Tz_Cojj28HtKUzqZE_XYMSjWtthdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

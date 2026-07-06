@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #1a2b1a;
+  --forest-dark: #111d11;
+  --forest-hover: #223322;
+  --forest-border: #2d4a2d;
+  --forest-muted: #5a7a5a;
+  --forest-light: #8ab08a;
+  --surface: #1f301f;
+  --amber: #d4a017;
+  --amber-dark: #b8880f;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--forest);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  overscroll-behavior: none;
+}
+
+.leaflet-container {
+  background: #1a2b1a !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #1f301f;
+  color: white;
+  border: 1px solid #2d4a2d;
+  border-radius: 12px;
+}
+
+.leaflet-popup-tip {
+  background: #1f301f;
+}
+
+.leaflet-popup-close-button {
+  color: #8ab08a !important;
+}
+
+.leaflet-control-zoom a {
+  width: 28px !important;
+  height: 28px !important;
+  line-height: 28px !important;
+  font-size: 16px !important;
+}
+
+.leaflet-touch .leaflet-control-zoom a {
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--amber);
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #2d4a2d;
+  border-radius: 2px;
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

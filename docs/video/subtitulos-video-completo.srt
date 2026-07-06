@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:08,000
+Bienvenido a Mi Batida. En este video veras el uso completo de la app.
+
+2
+00:00:08,000 --> 00:00:18,000
+Aprenderas a crear batidas, gestionar equipo, usar mapa en vivo y trabajar sin cobertura.
+
+3
+00:00:18,000 --> 00:00:30,000
+Empezamos por perfil: nombre visible, foto y recuperacion con pregunta de seguridad.
+
+4
+00:00:30,000 --> 00:00:46,000
+Ahora creamos una batida nueva con nombre, cupos por especie y rol inicial.
+
+5
+00:00:46,000 --> 00:01:00,000
+La app genera codigo de invitacion para unir al resto de la cuadrilla.
+
+6
+00:01:00,000 --> 00:01:18,000
+Desde info de batida compartimos por WhatsApp con enlace directo de entrada.
+
+7
+00:01:18,000 --> 00:01:34,000
+Al abrir el enlace, la app puede precargar el codigo e intentar unirse automaticamente.
+
+8
+00:01:34,000 --> 00:01:54,000
+En el mapa en vivo vemos posiciones, rastros, puestos, alertas y rutas historicas.
+
+9
+00:01:54,000 --> 00:02:14,000
+Con filtros puedes mostrar u ocultar elementos segun lo que necesites en cada momento.
+
+10
+00:02:14,000 --> 00:02:30,000
+El GPS permite envio manual o automatico por intervalos.
+
+11
+00:02:30,000 --> 00:02:46,000
+Con el boton de centrado vuelves rapido a tu posicion actual.
+
+12
+00:02:46,000 --> 00:03:04,000
+Si hay emergencia, pulsa SOS: se envia al chat con coordenadas y enlace de mapa.
+
+13
+00:03:04,000 --> 00:03:18,000
+Cuando la situacion se resuelve, puedes cancelar el SOS activo.
+
+14
+00:03:18,000 --> 00:03:38,000
+En registro de piezas marcamos cazado, herido o escapado con especie y detalles.
+
+15
+00:03:38,000 --> 00:03:56,000
+Tambien puedes crear alertas de perros para mejorar coordinacion en campo.
+
+16
+00:03:56,000 --> 00:04:14,000
+En el chat se comparten mensajes e imagenes en tiempo real.
+
+17
+00:04:14,000 --> 00:04:36,000
+Para modo offline: elige capa, nombre del mapa, zoom y zona con gesto de arrastre.
+
+18
+00:04:36,000 --> 00:04:56,000
+Descarga el mapa y quedara guardado en perfil dentro de Mis mapas offline.
+
+19
+00:04:56,000 --> 00:05:16,000
+Puedes compartir ese mapa por chat para que otros lo descarguen en su dispositivo.
+
+20
+00:05:16,000 --> 00:05:36,000
+En Totales ves actividad en vivo y en Historial exportas informe final en PDF.
+
+21
+00:05:36,000 --> 00:05:52,000
+Mi Batida centraliza la operativa de campo y mejora seguridad del equipo.
+
+22
+00:05:52,000 --> 00:06:00,000
+Gracias por ver este recorrido completo.

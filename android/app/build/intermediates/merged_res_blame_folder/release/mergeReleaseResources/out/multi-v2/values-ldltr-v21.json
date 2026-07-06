@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.mibatida.app-mergeReleaseResources-38:/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\wwwes\\.gradle\\caches\\8.14.3\\transforms\\42c649b0488f4d2c8c1da82d197ef1a5\\transformed\\appcompat-1.7.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

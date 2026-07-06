@@ -1,0 +1,14 @@
+// Configurar toolchain para permitir Java 17
+plugins {
+    id 'jvm-toolchain-management'
+}
+
+toolchainManagement {
+    jvm {
+        javaRepositories {
+            repository('adoptium') {
+                resolveStrategy = 'prefer'
+            }
+        }
+    }
+}

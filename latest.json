@@ -1,0 +1,5 @@
+{
+    "latestVersion":  "1.1.3",
+    "apkUrl":  "https://abdwszaejrzqtjlvhakw.supabase.co/storage/v1/object/public/app-updates/mi-batida-v1.1.3-release.apk",
+    "notes":  "Fix realtime admin sync, salida temporal/definitiva y sincronizacion de mapa"
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">711108890470</string>
+    <string name="google_api_key" translatable="false">AIzaSyAI_4Tz_Cojj28HtKUzqZE_XYMSjWtthdU</string>
+    <string name="google_app_id" translatable="false">1:711108890470:android:c68fa7679fc8bb507202a7</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAI_4Tz_Cojj28HtKUzqZE_XYMSjWtthdU</string>
+    <string name="google_storage_bucket" translatable="false">mibatida-push.firebasestorage.app</string>
+    <string name="project_id" translatable="false">mibatida-push</string>
+</resources>
